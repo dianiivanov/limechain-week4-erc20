@@ -31,12 +31,12 @@ const run = async function (contractAddress) {
   balanceOf = await myTokenContract.balanceOf(PUBLIC_KEY);
   console.log("balanceOf after burn 1:", balanceOf.toString());
 
-  setTimeout(async () => {
-    const burnTx2 = await myTokenContract.burnFrom(PUBLIC_KEY, 10);
-    await burnTx2.wait();
-    balanceOf = await myTokenContract.balanceOf(PUBLIC_KEY);
-    console.log("balanceOf after burn 2:", balanceOf.toString());
-  }, 5000);
+  //   setTimeout(async () => {
+  //     const burnTx2 = await myTokenContract.burnFrom(PUBLIC_KEY, 10);
+  //     await burnTx2.wait();
+  //     balanceOf = await myTokenContract.balanceOf(PUBLIC_KEY);
+  //     console.log("balanceOf after burn 2:", balanceOf.toString());
+  //   }, 5000);
 };
 
 const args = process.argv.slice(2);

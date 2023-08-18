@@ -97,17 +97,17 @@ contract MyToken is IERC20 {
         emit Minted(msg.sender, account, amount);
     }
 
-    function burnFrom(
+    function _burnFrom(
         address account,
         uint256 amount
-    ) public onlyForSufficientBalance(amount, account) {
+    ) internal onlyForSufficientBalance(amount, account) {
         balanceOf[account] -= amount;
         totalSupply -= amount;
         emit Burned(msg.sender, account, amount);
     }
 
     function burn(uint256 amount) public {
-        burnFrom(msg.sender, amount);
+        _burnFrom(msg.sender, amount);
     }
 
     modifier shouldNotBeZeroAddress(address account) {
